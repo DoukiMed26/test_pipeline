@@ -1,0 +1,26 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.venv/
+venv/
+.env
+*.log
+
+# IDE / OS
+.vscode/
+.idea/
+.DS_Store
+
+# Tests / caches
+.pytest_cache/
+.coverage
+
+# Project data & outputs
+Data/
+outputs/
+
+# Archives
+*.zip
