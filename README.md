@@ -7,7 +7,7 @@ Projet Python **propre et modulaire** qui :
 - ajoute, pour chaque **journal**, la **première date**, la **dernière date** et le **nombre de publications distinctes** ;
 - inclut un **traitement ad-hoc** pour trouver le journal qui mentionne le plus de **médicaments distincts**.
 
-## Structure project ;)
+## Structure project
 ```
 test_pipline/
 ├─ src/
