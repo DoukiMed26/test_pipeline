@@ -71,8 +71,8 @@ python tools/top_journal.py --input outputs/drug_publications_by_atc.json --expo
 ```
 ### DAG ETL
 ![DAG ETL](docs/img/dag_etl.png)
-![GCS](docs/img/gcs.png)
-![Output](docs/img/output.png)
+![GCS](docs/img/GCS.png)
+![Output](docs/img/output.PNG)
 
 ## Réponses aux questions supplémentaires
 
