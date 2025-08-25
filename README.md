@@ -105,8 +105,47 @@ Pour pouvoir traiter des fichiers de plusieurs To ou des millions de fichiers, l
    Ajouter des logs, des métriques et des contrôles de qualité pour détecter rapidement anomalies et erreurs.  
 
  En résumé : **lire par morceaux, stocker dans des formats efficaces, distribuer le calcul, traiter seulement les nouveautés, et utiliser une infrastructure qui s’adapte automatiquement.**
-8. **BQ**  
-J’ai testé les requêtes directement dans BigQuery afin de valider la logique. Les résultats confirment que le chiffre d’affaires est correctement calculé jour par jour et que la répartition des ventes MEUBLE/DECO par client est juste. Des captures d’écran montrent les exécutions et les résultats obtenus.
-![Req1](docs/req1.PNG)
+ 
+## Partie 2 Test : BigQuery (Tests SQL)
+
+J’ai testé les requêtes directement dans **BigQuery** afin de valider la logique.
+
+-  Le **chiffre d’affaires journalier** est correctement calculé jour par jour.  
+-  La répartition des ventes **MEUBLE / DECO par client** est juste.  
+-  Des captures d’écran montrent les exécutions et les résultats obtenus.
+
+### Exécution des requêtes
+![Req1](docs/req1.PNG)  
 ![Req2](docs/req2.PNG)
+
+
+## Partie 1 — Requêtes SQL
+
+
+
+```sql
+SELECT 
+  t.date AS jour,
+  SUM(t.prod_price * t.prod_qty) AS ca_journalier
+FROM transactions t
+WHERE t.date >= '2019-01-01'
+  AND t.date <= '2019-12-31'
+GROUP BY t.date
+ORDER BY jour;
+
+
+### 2) Ventes "MEUBLE" et "DECO" par client
+
+SELECT 
+  tr.client_id,
+  SUM(CASE WHEN p.product_type = 'MEUBLE' THEN tr.prod_price * tr.prod_qty END) AS total_meuble,
+  SUM(CASE WHEN p.product_type = 'DECO'   THEN tr.prod_price * tr.prod_qty END) AS total_deco
+FROM transactions tr
+INNER JOIN product_nomenclature p
+  ON tr.prod_id = p.product_id
+WHERE tr.date >= '2019-01-01'
+  AND tr.date <= '2019-12-31'
+GROUP BY tr.client_id
+ORDER BY tr.client_id;
+
 
