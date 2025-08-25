@@ -4,17 +4,17 @@ from pathlib import Path
 import sys, json, csv
 from argparse import ArgumentParser
 
-# Localiser le projet (ce fichier est dans .../dags/projet/test_pipeline/)
+
 BASE_DIR = Path(__file__).resolve().parent
-SRC_DIR  = BASE_DIR / "src"          # contient le package Python "test_pipline"
-DATA_DIR = BASE_DIR / "Data"         # fichiers d'entrée
-OUT_DIR  = BASE_DIR / "outputs"      # sorties
+SRC_DIR  = BASE_DIR / "src"          
+DATA_DIR = BASE_DIR / "Data"         
+OUT_DIR  = BASE_DIR / "outputs"      
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 OUT_DIR.mkdir(parents=True, exist_ok=True)
 if str(SRC_DIR) not in sys.path:
     sys.path.append(str(SRC_DIR))
 
-# Import du code métier
+
 from test_pipline.config import Config
 from test_pipline.pipeline import run_pipeline
 

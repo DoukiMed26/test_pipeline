@@ -8,7 +8,7 @@ from airflow.operators.python import PythonOperator
 
 DAG_ID  = "etl_drug_mentions"
 DAG_DIR = Path(__file__).resolve().parent
-RUN_PY  = DAG_DIR / "run.py"   # ce fichier doit exister à côté du DAG
+RUN_PY  = DAG_DIR / "run.py"   
 
 def _load_run_module():
     """Charge run.py par chemin et renvoie le module importé."""
