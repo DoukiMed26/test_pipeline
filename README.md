@@ -53,16 +53,6 @@ test_pipline/
   }
   ```
 
-## Installation
-```bash
-pip install -r requirements.txt
-```
-
-## Exécution de la pipeline
-```bash
-python run.py --data-dir Data --out-dir outputs --dayfirst
-```
-- `--dayfirst` : dates ambiguës interprétées **jour/mois/année** (EU). Retirez ce flag si vos sources sont US.
 
 ## Traitement ad-hoc (journal le plus couvrant)
 Une fois le JSON généré :
